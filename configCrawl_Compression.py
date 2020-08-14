@@ -52,8 +52,10 @@ def accessSwitches(session, switch, username, password):
         print('--- Terminated Program!!')
         exit()
 
-    idx = session.expect(['>', 'ESA1-S-202-7408-SL', \
-        'ESA1-S-202-7509-SL', 'ESA1-S-A01-G012-SL', 'ESA1-S-A01-G227-SL', wexpect.EOF])
+    # Cannot disclose the hostname
+    # You need to change these values at on your environment
+    idx = session.expect(['>', 'switch1', \
+        'switch2', wexpect.EOF])
     
     print('--- Success Login to: ', switch[0])
  
@@ -97,9 +99,11 @@ def commandExecute(session, switch):
         session.sendline(command)
 
         print("--- Configuration is gathering")
-        session.expect([r'ESA1-S-202-7509-SL \(enable\)', \
-            r'ESA1-S-202-7408-SL \(enable\)', r'ESA1-S-A01-G012-SL \(enable\)', \
-            r'ESA1-S-A01-G227-SL \(enable\)', wexpect.EOF])
+        
+        # Cannot disclose the hostname
+        # You need to change these values at on your environment
+        session.expect([r'Switch1 \(enable\)', \
+            r'Switch2 \(enable\)', wexpect.EOF])
 
     return session.before.splitlines()
 
@@ -131,7 +135,7 @@ if __name__ == '__main__':
     print('|    Running-Configuration gathering tool...                  |')
     print('|    Version 1.0.0                                            |')
     print('|    Access the devices and dump configuration to text file   |')
-    print('|    Then, compress them into one file and email to the team  |')
+    print('|    Then, compress them into one file                        |')
     print('|    Scripted by Ethan Park, Aug. 2020                        |')
     print('+-------------------------------------------------------------+')
     print()
