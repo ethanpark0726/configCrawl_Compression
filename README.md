@@ -11,6 +11,6 @@
 ## Main Logic of this script  
   - Read a device list file  
   - Access to the device  
-  - Send a command either <em><string>sh run</string></em> or <em><string>sh config all</string></em> depends on the device
+  - Send a command either <em><strong>sh run</strong></em> or <em><strong>sh config all</strong></em> depends on the device
   - Save as a txt file
   - Compress the multiple files
