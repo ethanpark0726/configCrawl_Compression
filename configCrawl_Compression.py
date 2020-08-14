@@ -10,7 +10,7 @@ def accessJumpBox(username, password):
 
     print('\n--- Attempting connection to ' + 'IS6 Server... ')
     ssh_newkey = 'Are you sure you want to continue connecting'
-    session = wexpect.spawn('ssh ' + username + '@is6.hsnet.ufl.edu', timeout=300)
+    session = wexpect.spawn('ssh ' + username + '@serverAddress', timeout=300)
 
     idx = session.expect([ssh_newkey, 'word', wexpect.EOF])
 
